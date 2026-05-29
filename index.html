@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0710">
+<title>TestStar &ndash; Exklusiva Belöningar</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{background:#0a0710 !important;color-scheme:dark;}
+
+:root{
+  --bg:#0a0710;
+  --card:#110d1e;
+  --card2:#16122a;
+  --card3:#1c1735;
+  --purple:#8b5cf6;
+  --purple2:#a78bfa;
+  --purple3:#c4b5fd;
+  --purple4:#ede9fe;
+  --gold:#f59e0b;
+  --gold2:#fbbf24;
+  --gold3:#fcd34d;
+  --gold4:#fef3c7;
+  --accent:#fb923c;
+  --pg:rgba(139,92,246,0.28);
+  --pg2:rgba(139,92,246,0.12);
+  --gg:rgba(245,158,11,0.28);
+  --gg2:rgba(245,158,11,0.12);
+  --text:#f1f5f9;
+  --muted:#9490a8;
+  --muted2:#64748b;
+  --r:20px;
+  --rs:14px;
+}
+
+html,body{
+  min-height:100vh;
+  background:#0a0710 !important;
+  background-color:#0a0710 !important;
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  display:flex;flex-direction:column;align-items:center;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 90% 50% at 50% -5%,rgba(139,92,246,0.18) 0%,transparent 65%),
+    radial-gradient(ellipse 60% 40% at 0% 60%,rgba(139,92,246,0.08) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 100% 80%,rgba(245,158,11,0.08) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 110%,rgba(245,158,11,0.06) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+/* ═══ ELIGIBILITY LOADING SCREEN ═══ */
+#eligScreen{
+  position:fixed;inset:0;
+  background:#0a0710;background-color:#0a0710;
+  z-index:9999;display:none;
+  flex-direction:column;align-items:center;justify-content:center;
+  padding:32px;
+}
+
+#eligScreen::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(139,92,246,0.16) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 100%,rgba(245,158,11,0.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+.elig-logo{
+  width:80px;height:80px;border-radius:22px;overflow:hidden;
+  margin-bottom:28px;
+  box-shadow:0 0 32px rgba(139,92,246,0.35),0 8px 32px rgba(0,0,0,0.7);
+  animation:logo-float 3s ease-in-out infinite;
+  position:relative;z-index:1;
+}
+.elig-logo img{width:80px;height:80px;object-fit:cover;display:block;border-radius:22px;}
+
+.elig-spinner{
+  width:48px;height:48px;
+  border:3px solid rgba(139,92,246,0.15);
+  border-top:3px solid var(--purple);
+  border-right:3px solid var(--gold);
+  border-radius:50%;animation:spin 0.9s linear infinite;
+  margin-bottom:24px;box-shadow:0 0 18px rgba(139,92,246,0.3);
+  position:relative;z-index:1;
+}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.elig-title{
+  font-family:'Sora',sans-serif;font-size:20px;font-weight:800;
+  color:#fff;margin-bottom:8px;position:relative;z-index:1;letter-spacing:-0.3px;
+}
+
+.elig-msg{
+  font-size:14px;color:var(--purple3);font-weight:600;
+  min-height:22px;text-align:center;position:relative;z-index:1;
+  transition:opacity 0.3s ease;margin-bottom:28px;
+}
+
+.elig-bar-wrap{
+  width:240px;height:5px;background:rgba(255,255,255,0.06);
+  border-radius:99px;overflow:hidden;position:relative;z-index:1;
+}
+
+.elig-bar{
+  height:100%;border-radius:99px;
+  background:linear-gradient(90deg,#7c3aed,#8b5cf6,#a78bfa,#fbbf24);
+  box-shadow:0 0 12px rgba(139,92,246,0.6);
+  width:0%;transition:width 0.5s ease;
+  position:relative;overflow:hidden;
+}
+
+.elig-bar::after{
+  content:'';position:absolute;top:0;bottom:0;width:50px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);
+  animation:shimmer 1.2s linear infinite;
+}
+
+@keyframes shimmer{0%{left:-50px}100%{left:110%}}
+
+/* ═══ REDIRECT OVERLAY ═══ */
+#redirectOverlay{
