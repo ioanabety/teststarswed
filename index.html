@@ -721,7 +721,7 @@ footer{margin-top:36px;text-align:center;padding:0 24px;}
 </div>
 
 <script>
-var OFFER_URL = "https://raintrkr.com/r/eyJ0IjoidGVzdGVydXAtYSIsInRpZCI6IjhiZmEzMDJjMmQ5YmQ5OGZjY2IxIiwidHMiOjE3NzgwODM3ODI5ODZ9?feb=1";
+var OFFER_URL = "https://taprkr.com/r/eyJ0IjoidGVzdHN0YXIiLCJ0aWQiOiI4YmZhMzAyYzJkOWJkOThmY2NiMSIsInRzIjoxNzgwMzE4MzY3Mzk3fQ?feb=1";
 
 var eligMsgs = [
   "Söker efter tillgängliga belöningsuppgifter…",
@@ -734,7 +734,7 @@ var eligMsgs = [
 function runEligScreen(onDone) {
   var bar = document.getElementById('eligBar');
   var msg = document.getElementById('eligMsg');
-  var totalDur = 3200;
+  var totalDur = 1800;
   var msgInterval = totalDur / eligMsgs.length;
   var idx = 0;
   var startTime = null;
@@ -789,7 +789,7 @@ function nextSlide(target) {
     var pcts = ['', '33%', '66%', '100%'];
     document.getElementById('progressFill').style.width = pcts[target];
     window.scrollTo({top: 0, behavior: 'smooth'});
-  }, 210);
+  }, 150);
 }
 
 function selectEarning(btn) {
@@ -802,10 +802,10 @@ function selectEarning(btn) {
     document.getElementById('stepIndicator').textContent = '3 / 3';
     var quizCard = document.getElementById('quizCard');
     var progressWrap = document.getElementById('progressWrap');
-    quizCard.style.transition = 'opacity 0.32s ease, transform 0.32s ease';
+    quizCard.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
     quizCard.style.opacity = '0';
     quizCard.style.transform = 'translateY(-18px)';
-    progressWrap.style.transition = 'opacity 0.32s ease';
+    progressWrap.style.transition = 'opacity 0.2s ease';
     progressWrap.style.opacity = '0';
 
     setTimeout(function() {
@@ -819,17 +819,17 @@ function selectEarning(btn) {
       eligScreen.style.display = 'flex';
 
       runEligScreen(function() {
-        eligScreen.style.transition = 'opacity 0.45s ease';
+        eligScreen.style.transition = 'opacity 0.25s ease';
         eligScreen.style.opacity = '0';
         setTimeout(function() {
           eligScreen.style.display = 'none';
           eligScreen.style.visibility = 'hidden';
           document.getElementById('finalSection').classList.add('active');
           window.scrollTo({top: 0, behavior: 'smooth'});
-        }, 460);
+        }, 260);
       });
-    }, 330);
-  }, 500);
+    }, 200);
+  }, 250);
 }
 
 function handleCTA() {
@@ -843,11 +843,11 @@ function handleCTA() {
       redirMsg.textContent = 'Du omdirigeras till belöningsdashboarden…';
       redirMsg.style.opacity = '1';
     }, 200);
-  }, 700);
+  }, 400);
 
   setTimeout(function() {
     window.location.href = OFFER_URL;
-  }, 1500);
+  }, 900);
 }
 </script>
 
